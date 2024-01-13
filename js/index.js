@@ -41,3 +41,11 @@ const displayRepos = (data) => {
     });
     repoList.innerHTML = list;
   };
+
+  const searchRepo = (e) => {
+    e.preventDefault();
+    let input = search.value;
+    fetch(`https://github.com/search?q=${input}&type=repositories`)
+    .then((response) => response.json())
+    .then((data) => console.log(data));
+  }
